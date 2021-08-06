@@ -1,7 +1,7 @@
 clear;clc;close all;
 
-PH = 4.26;  % high adsorption pressure in atm
-PL = 1.07;  % purge pressure in atm
+PH = 4.26*1.01325;  % high adsorption pressure in atm
+PL = 1.07*1.01325;  % purge pressure in atm
 PB = 1;     
 M = 5;
 [Pe,alphaA,alphaB,betaA,betaB,gamma_s,psi,vOH,L,yAF,C]=Get_Params(PH);
@@ -37,10 +37,9 @@ options = odeset('Mass',MM,'RelTol',1e-8,'AbsTol',AbsTol,"Stats",'on');
 % 1. Bed2---> High pressure adsorption and Bed1--->Purge
 
     % bed2 - high P adsorption
-    U0 = GET_IC(M,PL,Ax);
-    u0=[U0;U0];
+    u0=[GET_IC(M,PL,Ax,1);GET_IC(M,PL,Ax,4)];
     tmin=0;
-    tmax=0.2*160;
+    tmax=0.3*160;
     taumin = tmin*vOH/L;
     taumax = tmax*vOH/L;
     steps=100;

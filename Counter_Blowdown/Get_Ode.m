@@ -1,10 +1,10 @@
-function dUdt = Get_Ode(t,u,PL,dPdtau,PH,M)
+function dUdt = Get_Ode(t,u,PL,dPdtau,PH,M,alphaA,alphaB)
 
 % Getting Pressure
 P = PH + dPdtau*t;
 
 % Getting Parameters
-[Pe,alphaA,alphaB,betaA,betaB,gamma_s,psi,~,~,yAF,~]=Get_Params(P);
+[Pe,~,~,betaA,betaB,gamma_s,psi,~,~,yAF,~]=Get_Params(P);
 [Ai,Ax,Bx,~] = Get_matrix(M,Pe);
 Pm = 1/Pe;
 

@@ -39,7 +39,7 @@ toc
 
 for i=2:7
     subplot(3,2,i-1);
-    plot(t*L/vOH,u(:,14+i));
+    plot(t*L/vOH,u(:,i));
     xlabel('time') 
     ylabel('y_O_2') 
     title('At point',i);

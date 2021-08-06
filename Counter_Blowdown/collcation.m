@@ -31,7 +31,7 @@ end
 AbsTol = 1e-16*ones(1,4*M+8);
 options = odeset('Mass',MM,'RelTol',1e-8,'AbsTol',AbsTol,"Stats",'on');
 tic
-[t,u] = ode15s(@(t,u) Get_Ode(t,u,PB,dPdtau,PH,M),tspan,u0,options);
+[t,u] = ode15s(@(t,u) Get_Ode(t,u,PB,dPdtau,PH,M,alphaA,alphaB),tspan,u0,options);
 toc
 
 for i=2:7

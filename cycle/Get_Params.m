@@ -7,7 +7,6 @@ L = 35;            % bed length in cm
 r = 1.75;          % column radius in cm
 A = pi()*r^2;      % column area in cm2
 eps=0.4;           % bed porosity  
-P = P*1.01325;     % atm to bar
 T = 25+273.15;     % column temperature in K
 Q = 66.7;            % feed flow rate in cm3/s at 1 atm and 25 C
 QP = Q*1.01325/P;  % feed flow rate in cm3/s at column T and P

@@ -1,18 +1,20 @@
-function dUdt = Get_Ode(t,u,P,M)
+function dUdt = Get_Ode(t,u,PL,dPdt,PH,M)
+
+% Pressure
+P = PH + dPdt*t;
 
 % Getting Parameters
 [Pe,alphaA,alphaB,betaA,betaB,gamma_s,psi,vOH,L,yAF,C]=Get_Params(P);
 [Ai,Ax,Bx,~] = Get_matrix(M,Pe);
 Pm = 1/Pe;
-dPdt = 0;
 
+dUdt = zeros(4*(M+2),1);
 % u(1)...u(M+2) is yA
 % u(M+3)...u(2*(M+2)) is xA
 % u(2M+5)..u(3*(M+2)) is xB
 % u(3M+7)..u(4*(M+2)) is vbar
 
 %% for yA at z=0, i=1 ,
-dUdt = zeros(4*(M+2),1);
 term1 = 0;
 term2 = 0;
 for i=2:M+1

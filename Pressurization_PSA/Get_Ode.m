@@ -12,16 +12,16 @@ Pm = 1/Pe;
 % u(M+3)...u(2*(M+2)) is xA
 % u(2M+5)..u(3*(M+2)) is xB
 % u(3M+7)..u(4*(M+2)) is vbar
-
-%% for yA at z=0, i=1 ,
 dUdt = zeros(4*(M+2),1);
+
+%% for yA at z=0, i=1 
 term1 = 0;
 term2 = 0;
 for i=2:M+1
     term1 = term1 + (Ai(3)*Ax(M+2,i) - Ax(1,i))*u(i);
     term2 = term2 + (Ax(M+2,i)*u(i) ); 
 end
-dUdt(1) = - Ai(5)*term1 -Ai(4)*term2 +Ai(5)*Pe*u(3*(M+2)+1)*yAF -u(1); 
+dUdt(1) = -Ai(5)*term1 -Ai(4)*term2 +Ai(5)*Pe*u(3*(M+2)+1)*yAF -u(1); 
 
 
 
